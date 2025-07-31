@@ -1,0 +1,98 @@
+:root {
+    --text-color: #222;
+    --gap-standard: 0.5rem;
+}
+
+button {
+    cursor: pointer;
+    background: white;
+    color: var(--text-color);
+    font-size: 1.25rem;
+
+    border: var(--text-color) 1px solid;
+
+    &:disabled {
+        background: whitesmoke;
+        border: none;
+    }
+}
+
+.root {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-standard);
+
+    height: 100vh;
+    padding: 1rem;
+}
+.leftContainer {
+    flex: 2;
+    display: flex;
+    gap: var(--gap-standard);
+}
+.rightContainer {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-standard);
+}
+
+.choicesContainer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-standard);
+    width: 100%;
+}
+.choice {
+    flex: 1;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 1.5rem;
+
+    &[data-sold-out="true"] {
+        cursor: auto;
+        background: #fdd;
+        color: firebrick;
+    }
+    &[data-insufficient-funds="true"] {
+        cursor: auto;
+        background: whitesmoke;
+        color: dimgray;
+    }
+}
+
+.paymentOptionsContainer {
+    flex: 2;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: var(--gap-standard);
+}
+.paymentOption {
+}
+
+.cancel {
+    flex: 1;
+}
+
+.displayContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1rem;
+}
+
+@media screen and (width > 520px) {
+    button {
+        font-size: 1.5rem;
+    }
+    .root {
+        flex-direction: row;
+    }
+    .leftContainer,
+    .rightContainer {
+        flex: 1;
+    }
+}
