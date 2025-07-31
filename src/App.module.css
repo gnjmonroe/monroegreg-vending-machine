@@ -1,98 +1,40 @@
 :root {
-    --text-color: #222;
-    --gap-standard: 0.5rem;
+    --text-color-std: #222;
+    --text-color-disabled: #555;
+    --gap-std: 0.5rem;
+    --bg-disabled: #e0e0e0;
 }
 
 button {
     cursor: pointer;
     background: white;
-    color: var(--text-color);
+    color: var(--text-color-std);
     font-size: 1.25rem;
-
-    border: var(--text-color) 1px solid;
+    border: var(--text-color-std) 1px solid;
+    transition: background 0.15s ease-out;
 
     &:disabled {
-        background: whitesmoke;
+        color: var(--text-color-disabled);
+        background: var(--bg-disabled);
         border: none;
+    }
+    &:not(:disabled):hover {
+        background: #ccf0ff;
+        border-color: #08f;
     }
 }
 
 .root {
     display: flex;
     flex-direction: column;
-    gap: var(--gap-standard);
-
+    gap: var(--gap-std);
+    max-width: 520px;
+    margin-inline: auto;
     height: 100vh;
     padding: 1rem;
-}
-.leftContainer {
-    flex: 2;
-    display: flex;
-    gap: var(--gap-standard);
-}
-.rightContainer {
-    flex: 3;
-    display: flex;
-    flex-direction: column;
-    gap: var(--gap-standard);
-}
-
-.choicesContainer {
-    display: flex;
-    flex-direction: column;
-    gap: var(--gap-standard);
-    width: 100%;
-}
-.choice {
-    flex: 1;
-    display: inline-flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 1rem 1.5rem;
-
-    &[data-sold-out="true"] {
-        cursor: auto;
-        background: #fdd;
-        color: firebrick;
-    }
-    &[data-insufficient-funds="true"] {
-        cursor: auto;
-        background: whitesmoke;
-        color: dimgray;
-    }
-}
-
-.paymentOptionsContainer {
-    flex: 2;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    gap: var(--gap-standard);
-}
-.paymentOption {
 }
 
 .cancel {
     flex: 1;
-}
-
-.displayContainer {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    gap: 1rem;
-}
-
-@media screen and (width > 520px) {
-    button {
-        font-size: 1.5rem;
-    }
-    .root {
-        flex-direction: row;
-    }
-    .leftContainer,
-    .rightContainer {
-        flex: 1;
-    }
+    font-size: clamp(1rem, 0.423rem + 3.077vw, 1.5rem);
 }

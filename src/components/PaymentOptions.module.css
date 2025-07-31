@@ -1,0 +1,10 @@
+.paymentOptionsContainer {
+    flex: 2;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: var(--gap-std);
+}
+.paymentOption {
+    font-size: clamp(0.75rem, 0.318rem + 3.636vw, 1.5rem);
+}

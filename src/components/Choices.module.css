@@ -1,0 +1,31 @@
+.choicesContainer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-std);
+    width: 100%;
+    max-height: 50%;
+}
+.choice {
+    flex: 1;
+    overflow: hidden;
+    display: inline-flex;
+    gap: 1rem;
+    width: 100%;
+    padding: 0.75rem;
+
+    &[data-sold-out="true"] {
+        cursor: auto;
+        background: #fdd;
+        color: firebrick;
+    }
+
+    img {
+        height: 100%;
+        aspect-ratio: 1;
+    }
+    .choiceText {
+        flex: 1;
+        font-size: clamp(1rem, 0.423rem + 3.077vw, 1.5rem);
+        margin-block: auto;
+    }
+}
