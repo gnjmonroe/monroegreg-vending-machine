@@ -3,6 +3,7 @@ import type { INVENTORY, InventoryKeys } from "../consts";
 import { BalanceContext } from "../BalanceContext";
 import styles from "./Choices.module.css";
 import { capitalizeFirstLetter } from "../utils/capitalizeFirstLetter";
+import { formatKrw } from "../utils/formatKrw";
 
 interface ChoicesProps {
   inventory: typeof INVENTORY;
@@ -22,6 +23,7 @@ export default function Choices({
         ([key, { price, count, imgSrc, altText }]) => {
           const isSoldOut = count === 0;
           const isInsufficientFunds = balance !== "card" && balance < price;
+          const quantityString = `(${count || "Sold Out"})`;
 
           return (
             <button
@@ -33,12 +35,17 @@ export default function Choices({
               }}
               className={styles.choice}
               data-sold-out={isSoldOut}
+              data-insufficient-funds={isInsufficientFunds}
             >
               <img src={imgSrc} alt={altText} />
-              <span className={styles.choiceText}>
-                <span>
-                  {capitalizeFirstLetter(key)} ({count || "Sold Out"})
-                </span>
+              <span className={styles.choiceSpanContainer}>
+                <span>{`${capitalizeFirstLetter(key)} ${quantityString}`}</span>
+                <span className={styles.price}>{formatKrw(price)}</span>
+                {isInsufficientFunds && (
+                  <span className={styles.insufficientFunds}>
+                    Insufficient Funds
+                  </span>
+                )}
               </span>
             </button>
           );

@@ -41,7 +41,7 @@ export default function PaymentOptions({ setBalance }: PaymentOptions) {
             onClick={() => incrementBalance(po)}
             className={styles.paymentOption}
           >
-            {formatKrw(po)}
+            +{formatKrw(po)}
           </button>
         );
       })}

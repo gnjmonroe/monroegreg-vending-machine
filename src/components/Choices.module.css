@@ -13,19 +13,37 @@
     width: 100%;
     padding: 0.75rem;
 
+    &[data-insufficient-funds="true"] {
+        cursor: auto;
+        background: #ffe;
+        color: darkgoldenrod;
+        border-color: darkgoldenrod;
+    }
     &[data-sold-out="true"] {
         cursor: auto;
         background: #fdd;
         color: firebrick;
+        border-color: firebrick;
     }
 
     img {
         height: 100%;
         aspect-ratio: 1;
     }
-    .choiceText {
-        flex: 1;
-        font-size: clamp(1rem, 0.423rem + 3.077vw, 1.5rem);
-        margin-block: auto;
-    }
+}
+.choiceSpanContainer {
+    flex: 1;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 0.125rem;
+    margin-block: auto;
+}
+.title {
+    font-size: clamp(1rem, 0.423rem + 3.077vw, 1.5rem);
+}
+.price {
+    font-size: clamp(0.75rem, 0.462rem + 1.538vw, 1rem);
+}
+.insufficientFunds {
+    font-size: 0.625rem;
 }

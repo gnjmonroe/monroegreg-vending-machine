@@ -16,7 +16,7 @@ button {
     &:disabled {
         color: var(--text-color-disabled);
         background: var(--bg-disabled);
-        border: none;
+        border: 1px solid var(--text-color-disabled);
     }
     &:not(:disabled):hover {
         background: #ccf0ff;

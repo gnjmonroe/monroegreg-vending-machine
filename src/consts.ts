@@ -5,7 +5,7 @@ import coffee from "/coffee.png";
 export const INVENTORY = {
   cola: {
     price: 1_100,
-    count: 5,
+    count: 10,
     imgSrc: cola,
     altText: "A bottle of cola",
   },
@@ -17,7 +17,7 @@ export const INVENTORY = {
   },
   coffee: {
     price: 700,
-    count: 5,
+    count: 1,
     imgSrc: coffee,
     altText: "A cup of coffee",
   },
